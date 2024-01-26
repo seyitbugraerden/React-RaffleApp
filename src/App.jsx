@@ -4,6 +4,7 @@ import { ConfirmDialog } from "primereact/confirmdialog";
 import { Toast } from "primereact/toast";
 import { Button } from "primereact/button";
 import { ProgressSpinner } from "primereact/progressspinner";
+import { InputText } from "primereact/inputtext";
 import "./App.css";
 import "primeicons/primeicons.css";
 import { Tree } from "primereact/tree";
@@ -13,6 +14,8 @@ function App() {
   const [deger, setDeger] = useState();
   const [isCreated, setIsCreated] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
+  const [show, setShow] = useState(false);
+  const [value, setValue] = useState("");
   const toast = useRef(null);
 
   const [data, setData] = useState([
@@ -23,11 +26,16 @@ function App() {
     { name: "Paris", code: "PRS" },
   ]);
   const accept = () => {
-    toast.current.show({
-      severity: "success",
-      summary: "Veriler Güncellendi",
-      life: 3000,
+    setData((prevData) => {
+      const newData = [...prevData, { name: value, code: value }];
+      toast.current.show({
+        severity: "success",
+        summary: "Veriler Güncellendi",
+        life: 3000,
+      });
+      return newData;
     });
+    setValue("");
   };
   const deleteItem = (deletedVeri) => {
     setData(data.filter((item) => item.name !== deletedVeri));
@@ -76,9 +84,42 @@ function App() {
         onHide={() => setVisible(false)}
         message={
           <div>
+            <ConfirmDialog
+              className="center"
+              visible={show}
+              header="Add New Data"
+              accept={accept}
+              message={
+                <InputText
+                  className="center"
+                  placeholder="New Data"
+                  accept={accept}
+                  value={value}
+                  onChange={(e) => setValue(e.target.value)}
+                  style={{
+                    width: "50%",
+                    backgroundColor: "transparent",
+                    border: "0px",
+                    borderBottom: "2px solid black",
+                    outline: "0px",
+                    boxShadow: "0px",
+                  }}
+                />
+              }
+              style={{ width: "50vw" }}
+              breakpoints={{ "1100px": "75vw", "960px": "100vw" }}
+            />
+            <button
+              className="add_data"
+              onClick={() => {
+                setShow(true);
+              }}
+            >
+              Add New Data
+            </button>
             {data.map((item, index) => (
               <p key={index}>
-                {item.name} {item.code}
+                {item.name}
                 {data.length === 1 ? (
                   <i
                     className="bi bi-trash"
@@ -103,7 +144,6 @@ function App() {
           </div>
         }
         header="Raffle Elements"
-        accept={accept}
         style={{ width: "50vw" }}
         breakpoints={{ "1100px": "75vw", "960px": "100vw" }}
       />

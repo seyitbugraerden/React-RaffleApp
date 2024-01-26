@@ -51,3 +51,8 @@ button[aria-label="No"]{display: none !important;}
 button{margin: 5px 15px;}
 .p-dialog-header-icons{display: none;}
 .bi-x-lg{position: absolute;right: 30px;top: 20px;font-size: 24px;font-weight: bold;}
+.add_data{position: absolute;left: 7px;bottom: 24px;background-color: red;}
+button:active{border: 0px;outline: 0px;box-shadow: 0px;}
+button:focus{border:0px;outline: 0px;box-shadow: 0px;}
+.black{color: rgb(0,0,0) !important;opacity: 1;margin: auto;}
+.center{display: flex;justify-content: center;width: 100%;margin: auto;}
