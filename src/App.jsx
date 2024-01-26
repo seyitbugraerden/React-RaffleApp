@@ -26,6 +26,16 @@ function App() {
     { name: "Paris", code: "PRS" },
   ]);
   const accept = () => {
+    if (value.trim() === "") {
+      // Display a message or handle the empty value case as needed
+      toast.current.show({
+        severity: "warn",
+        summary: "Please enter a value",
+        life: 3000,
+      });
+      return;
+    }
+
     setData((prevData) => {
       const newData = [...prevData, { name: value, code: value }];
       toast.current.show({
@@ -35,7 +45,9 @@ function App() {
       });
       return newData;
     });
+
     setValue("");
+    setShow(false);
   };
   const deleteItem = (deletedVeri) => {
     setData(data.filter((item) => item.name !== deletedVeri));
