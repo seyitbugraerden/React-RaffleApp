@@ -48,3 +48,6 @@ p{display: flex;justify-content: space-between;padding: 15px 20px;transition: 30
 p:hover{background-color: rgb(0,0,0,.1);}
 i{margin: 0px 10px;font-size: 20px;cursor: pointer;}
 button[aria-label="No"]{display: none !important;}
+button{margin: 5px 15px;}
+.p-dialog-header-icons{display: none;}
+.bi-x-lg{position: absolute;right: 30px;top: 20px;font-size: 24px;font-weight: bold;}
