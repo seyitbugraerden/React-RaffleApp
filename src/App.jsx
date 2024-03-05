@@ -7,7 +7,6 @@ import { ProgressSpinner } from "primereact/progressspinner";
 import { InputText } from "primereact/inputtext";
 import "./App.css";
 import "primeicons/primeicons.css";
-import { Tree } from "primereact/tree";
 
 function App() {
   const [visible, setVisible] = useState(false);
@@ -63,13 +62,13 @@ function App() {
 
   return (
     <>
-      <Panel header="Online Raffle Program">
+      <Panel header="Raffle App">
         <Button
           onClick={() => setVisible(true)}
           icon="pi pi-user"
-          label="Element List"
+          label="Raffle Elements"
         />
-        <Button onClick={() => generate()} icon="pi pi-bolt" label="Generate" />
+        <Button onClick={() => generate()} icon="pi pi-bolt" label="Raffle" />
         <br />
         {isOpen ? (
           isCreated ? (
@@ -84,6 +83,7 @@ function App() {
               animationDuration=".5s"
             />
           ) : (
+            
             <p>{data[deger] && data[deger].name}</p>
           )
         ) : (
@@ -127,7 +127,7 @@ function App() {
                 setShow(true);
               }}
             >
-              Add New Data
+              Add New Raffle Element
             </button>
             {data.map((item, index) => (
               <p key={index}>
