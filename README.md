@@ -1,4 +1,4 @@
-# React | PrimeReact
+# React | PrimeReact Raffle App
 
 ![FireShot Capture 006 - React Raffle App - localhost](https://github.com/seyitbugraerden/React-RaffleApp/assets/154025499/f5208dfb-7f73-4aad-a807-c11fa0b94108)
 
