@@ -1,7 +1,6 @@
 import React, { useState, useRef } from "react";
 import { Panel } from "primereact/panel";
 import { ConfirmDialog } from "primereact/confirmdialog";
-import { Toast } from "primereact/toast";
 import { Button } from "primereact/button";
 import { ProgressSpinner } from "primereact/progressspinner";
 import { InputText } from "primereact/inputtext";
@@ -26,7 +25,6 @@ function App() {
   ]);
   const accept = () => {
     if (value.trim() === "") {
-      // Display a message or handle the empty value case as needed
       toast.current.show({
         severity: "warn",
         summary: "Please enter a value",
@@ -63,6 +61,7 @@ function App() {
   return (
     <>
       <Panel header="Raffle App">
+        <div style={{marginBottom : '25px'}}> <strong>Welcome to Raffle App</strong></div>
         <Button
           onClick={() => setVisible(true)}
           icon="pi pi-user"
@@ -90,7 +89,6 @@ function App() {
           ""
         )}
       </Panel>
-      <Toast ref={toast} />
       <ConfirmDialog
         visible={visible}
         onHide={() => setVisible(false)}
